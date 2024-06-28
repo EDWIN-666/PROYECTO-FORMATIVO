@@ -1,0 +1,807 @@
+*{
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+body{
+    font-family: 'Chewy', cursive;
+    background-size: contain;
+    background: url(../IMG/OTROFONDOX2.png);
+    background-attachment: fixed;
+}
+/* div .seccion{
+    width: 100%;
+    position: relative;
+    display: flex;
+} */
+/* div .ladoIzquierdo{  
+    position: relative;
+    width: 30%;
+    float: left;
+    align-items: center;
+}
+div .Imagen{
+    margin-top: 50px;
+    width: 100%;
+    height: 200px;
+    background: url(../IMG/cuadro.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+} */
+/* p{
+    position: relative;
+    z-index: 2;
+    font-family: 'Chewy', cursive; 
+    text-align: center;
+    color: rgb(0, 60, 255);
+    width: 60%;
+    font-size: 28px;
+    margin-left: 15px;
+    margin-top: -20px;
+} */
+/* .text{
+    margin-top: 1px;
+    color: rgb(255, 0, 0);
+} */
+button {
+    font-family: 'Chewy', cursive;
+    animation: ampliar 1s alternate infinite
+}
+/* div .LadoDerecho{
+    position: relative;
+    width: 70%;
+    display: flex;
+}
+div .Imagencastillo{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 600px;
+    background: url(../IMG/Parque_Fondo.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
+.decoracion{
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    height: 130px;
+    background: url(../IMG/pngwing.com\ \(2\).png);
+    background-size: contain;
+    animation: wind 5s ease-in-out infinite;
+    background-repeat: no-repeat;
+}
+/* div .GradosJardin{
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 150px;
+    text-align: center;
+    height: 200px;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+} */
+div .articulo{
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 150px;
+    text-align: center;
+    height: 200px;
+}
+div .GradosJardin2{
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-top: 100px;
+    text-align: center;
+    height: 200px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* div .salacuna {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 60px;
+    height: 200px;
+} */
+/* div .parvulos{
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 60px;
+    height: 200px;
+} */
+/* div .prejardin{
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 60px;
+    height: 200px;
+} */
+div .jardin{
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 60px;
+    height: 200px;
+}
+div .transicion{
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 60px;
+    height: 200px;
+}
+div .iconosc{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    height: 100px;
+    /* animation: rotate 0.5s ; */
+}
+div .iconops{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    height: 100px;
+}
+div .iconopn{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    height: 100px;
+}
+div .iconojn{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    height: 100px;
+}
+div .iconotn{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    height: 100px;
+}
+div .textosc p{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    color: white;
+    text-shadow: -4px 2.5px rgb(43, 39, 39);   
+}
+div .textops p{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    color: white;
+    text-shadow: -4px 2.5px rgb(43, 39, 39); 
+}
+div .textopn p{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    color: white;
+    text-shadow: -4px 2.5px rgb(43, 39, 39); 
+}
+div .textojn p{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    color: white;
+    text-shadow: -4px 2.5px rgb(43, 39, 39); 
+}
+div .textotn p{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    color: white;
+    text-shadow: -4px 2.5px rgb(43, 39, 39); 
+}
+div .iconosc{
+    background: url(../IMG/bebita.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+div .iconops{
+    background: url(../IMG/bloques.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+div .iconopn{
+    background: url(../IMG/jugando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+div .iconojn{
+    background: url(../IMG/Jugar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+div .iconotn{
+    background: url(../IMG/confianza.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* div .salacuna{
+    box-shadow: -6px 6px 30px 6px rgba(158, 3, 254, 0.599);
+    background: rgb(158, 3, 254);
+    background-size: contain;
+    border-radius:20px
+}
+div .parvulos{
+    box-shadow: -6px 6px 30px 6px rgba(65, 255, 246, 0.599);
+    background: rgb(65, 255, 246);
+    background-size: contain;
+    border-radius:20px
+}
+div .prejardin{
+    box-shadow: -6px 6px 30px 6px rgba(250, 74, 30, 0.599);
+    background: rgb(250, 74, 30);
+    background-size: contain;
+    border-radius:20px
+}
+div .jardin{
+    box-shadow: -6px 6px 30px 6px rgba(255, 3, 200, 0.599);
+    background: rgb(255, 3, 200);
+    background-size: contain;
+    border-radius:20px
+}
+div .transicion{
+    box-shadow: -6px 6px 30px 6px rgba(73, 165, 42, 0.599);
+    background: rgb(73, 165, 42);
+    background-size: contain;
+    border-radius:20px
+} */
+/* div .iconosc:hover, div .iconops:hover, div .iconopn:hover, div .iconojn:hover, div .iconotn:hover {
+    animation: rotate 2.0s infinite ;
+} */
+.imagenniños{
+
+    /* float: left;
+    display: flex; */
+    width: 46%;
+    height: 560px;
+    position: relative;
+    /* animation: girar 10s linear infinite; */
+    background-size: contain;
+    background: url(../IMG/fondomensajea.png);
+    background-repeat: no-repeat;
+
+}
+.secciontexto{
+    position: relative;
+    align-items: center;
+    width: 54%;
+    height: 560px;
+    background: rgb(255, 255, 255);
+}
+.textobienvenidos{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+}
+/* .textojardin{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    margin: 20px;
+    padding: 10px;
+} */
+.mensaje{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+}
+.textobienvenidos{
+    text-align: justify;
+    font-size: 30px;
+    color: rgb(255, 0, 0);
+    text-shadow: 4px 3px rgb(8, 2, 2);
+
+}
+.textojardin{
+    font-size: 35px;
+    color: rgb(43, 0, 255);
+    text-shadow: -3px 4px rgb(0, 0, 0);
+}
+.mensaje{
+    text-align: justify;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    font-family: 'Handlee', cursive;
+}
+.servicios{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    margin-top: 400px;
+    text-align: center;
+    height: 200px;
+}
+.servicios{
+    border-radius:40px;
+}
+.articuloservicios{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    margin-top: 200px;
+    text-align: center;
+    height: 200px;
+}
+.encabezadoservicios{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    width: 100%;
+}
+.imagenencabezado{
+    z-index: 2;
+    overflow: hidden;
+    position: relative;
+    /* background: url(../IMG/NubesEdi.png); */
+    background-size: contain;
+    animation: Movimiento 20s linear infinite;
+    justify-content: left;
+    width: 100%;
+    height: 200px;
+   
+}
+.encabezadoimagen{
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    background: linear-gradient(to bottom, #33ccff38 0%, #99fffa56 100%);
+    justify-content: left;
+    width: 100%;
+    height: 200px;
+}
+.tituloencabezado{
+    z-index: 2;
+    overflow: hidden;
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    color: red;
+    font-family: 'Handlee', cursive;
+}
+.textoencabezado, .años{
+    margin-top: 30px;
+}
+.años{
+    text-shadow: 3px -3px rgb(102, 255, 0);
+
+}
+.textoencabezado{
+    font-family: 'chewy', cursive;
+    font-size: 40px;
+    color: blue;
+}
+.TITULOGALERIA{
+    font-family: 'chewy', cursive;
+    font-size: 40px;
+    color: blue;
+}
+div .BserviciosB ul{
+    list-style: none;
+    height:400px
+}
+div .AserviciosA ul{
+    list-style: none;
+    height:400px
+}
+div .BserviciosB ul a, div .AserviciosA ul a{
+    font-family: 'Chewy', cursive;
+    
+}
+div .BserviciosB{
+    width: 40%;
+}
+div .serviciosA{
+    width: 40%;
+}
+.imagenservicios{
+    background: url(../IMG/ninos-y-ninas-jugando-en-la-hierba.jpg);
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+    border-radius: 20px;
+
+}
+div .BserviciosB ul a{
+    font-size: 35px;
+    color: rgb(4, 117, 231);
+    text-shadow: 3px -3px rgb(102, 255, 0);
+}
+div .serviciosA ul a{
+    font-size: 35px;
+    color: rgb(4, 117, 231);
+    text-shadow: 3px -3px rgb(102, 255, 0);
+}
+.A, .B, .C, .D, .E, .F{
+    padding-top: 65px;
+}
+.A:hover, .B:hover, .C:hover, .D:hover, .E:hover, .F:hover, .imagenservicios:hover{
+    animation: ampliar 1s alternate infinite
+}
+.imagenservicios:hover{
+    opacity: 0.6;
+}
+.galeria{
+    margin-top: 1100px;
+    width: 100%;
+    height: 800px;
+}
+/* Estilos para el contenedor de la caja */
+.imagen11{
+    cursor: pointer;
+    width: 98%;
+    height: 200px;
+    position: relative;
+    display:flex;
+    margin: 20px; 
+    background: url(../IMG/imagen11.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 6px 6px rgba(25, 179, 240, 0.319);
+}
+  
+.fila2{
+    width: 98%;
+    height: 200px;
+    position: relative;
+    display:flex;
+    margin: 20px; 
+}
+.fila3{
+    width: 98%;
+    height: 200px;
+    position: relative;
+    display:flex;
+    margin: 20px; 
+}
+
+.certificado{
+    position: absolute;
+    background: url(../IMG/fondopaisale.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    
+}
+.matriculas{
+    margin-top: 10px;
+    margin: 12px;
+    color: rgb(255, 0, 0);
+    text-shadow: 3px 3px rgb(55, 0, 255);
+}
+.parrafomatricula{
+    text-align: justify;
+    margin: 12px;
+    font-size: 22px;
+    font-family: 'Handlee', cursive;
+    color: black;
+}
+.imagenescertificado{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 200px;
+    margin-left: 50px;
+}
+.salud{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 78px;
+    margin: 10px;
+    background: url(../IMG/MINSALUD.png);
+    background-size: cover;
+}
+.educacion{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 78px;
+    margin: 10px;
+    background: url(../IMG/ministerioeducacion.png);
+    background-size: cover;
+}
+.mintic{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 78px;
+    margin: 10px;
+    background: url(../IMG/MINTIC\ \(1\).png);
+    background-size: cover;
+}
+.cultura{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 78px;
+    background: url(../IMG/banner-ministerio-de-cultura.png);
+    background-size: cover;
+}
+footer{
+    margin-top: 400px;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 350px;
+    background: url(../IMG/pngwing.com.png);
+}
+.footerservicios{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 300px;
+    margin: 10px;
+
+}
+.redesfooter{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 300px;
+    margin: 10px;
+}
+.logofooter{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 300px;
+    margin: 10px;
+    width: 15%;
+    background: url(../IMG/cuadro.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.contactanos{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 300px;
+    margin: 10px;
+    width: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.p{
+    width: 100%;
+    margin-top: 152PX;
+    font-size: 25px;
+    font-family: 'chewy', cursive;
+    color: rgb(0, 221, 255);
+    text-shadow: -3px -3px rgb(0, 0, 0);
+}
+.contap{
+    position: absolute;
+    margin-top: 20px;
+    font-size: 40px;
+    color: rgb(0, 255, 251);
+}
+.P{
+    margin-left: 30px;
+    text-align:left;
+    width: 100%;
+    margin-top: 90px;
+    font-size: 20px;
+    font-family: 'Handle', cursive;
+   color: #ffd5ae;
+}
+div .footerservicios ul{
+    margin-top: 50px;
+    text-align: justify;
+    width: 99%;
+    height: 100px;
+    list-style: none;
+    margin-left: 100px;
+
+}
+div .footerservicios ul a{
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(64, 0, 255);
+    border-radius: 15px;
+    font-family: 'Handlee', cursive;
+    color: bisque;
+    cursor: pointer;
+}
+div .footerservicios ul a:hover{
+    color: rgb(0, 229, 255);
+}
+.w{
+    cursor: pointer;
+    margin: 10px;
+    background: url(../IMG/whatsapp.png);
+    background-size: cover;
+}
+.f{
+    cursor: pointer;
+    margin: 10px;
+    background: url(../IMG/facebook.png);
+    background-size: cover;
+}
+.t{
+    cursor: pointer;
+    margin: 10px;
+    background: url(../IMG/gorjeo.png);
+    background-size: cover;
+}
+.i{
+    cursor: pointer;
+    margin: 10px;
+    background: url(../IMG/instagram.png);
+    background-size: cover;
+}
+.redesfooter ul li {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    font-family: 'handlee',cursive;
+}
+.redesfooter ul li:hover {
+    width: 180px;
+}
+.f:hover {
+    background: blue;
+    box-shadow: 0 10px 25px rgb(44, 40, 255);
+}
+.t:hover {
+    background: rgb(0, 221, 255);
+    box-shadow: 0 10px 25px rgb(40, 241, 255);
+}
+.w:hover {
+    background: rgb(31, 175, 45);
+    box-shadow: 0 10px 25px rgb(87, 255, 40);
+}
+.i:hover {
+    background: rgb(200, 0, 255);
+    box-shadow: 0 10px 25px rgb(212, 40, 255);
+}
+.redesfooter ul li .titulo {
+    color: #fff;
+    font-size: 1.1em !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: scale(0);
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+
+.redesfooter ul li:hover .titulo{
+    transform: scale(1);
+    transition-delay: 0.25;
+}
+
+.OTROFIN{
+    width: 100%;
+    font-size: 22px;
+    margin-top: 20px;
+    color:rgb(255, 255, 255);
+    font-family: 'handle', cursive;
+}
+  @keyframes wind {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+@keyframes Movimiento{
+    0%{background-position: 215px;}
+    100%{background-position: 0px;}
+}
+@keyframes rotate {
+    from {
+        transform: rotatey(0deg);
+    }
+    to {
+        transform: rotatey(360deg);
+    }
+}
+@keyframes girar 
+{ from { transform: rotate(0deg); 
+} 
+to { transform: rotate(360deg); } 
+}
+@keyframes ampliar{
+    0%{-webkit-transform:scale(0);transform: scale(0.9);}
+}
