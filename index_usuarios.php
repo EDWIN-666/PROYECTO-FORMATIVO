@@ -518,18 +518,7 @@ $agregacion = $_GET['ag_n'] ?? 3 ;//cambios
     <link  rel="stylesheet"  href="css_J_I/estilo_usuarios.css">
     <!-- <link rel="stylesheet" href="CSS/MUNDOACUARELA.CSS"> -->
     <title>JARDIN INFANTIL </title>
-    <script>
-function guardarID(id) {
-    $.ajax({
-        url: 'procesos.php',
-        method: 'POST',
-        data: { id_alumno: id },
-        success: function(response) {
-            // Opcional: manejar la respuesta si es necesario
-        }
-    });
-}
-</script>
+  
 
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Handlee&family=Lobster&display=swap');
@@ -749,12 +738,12 @@ body{
 
 
 <header> 
-     <h2 class="texto"> JARDIN INFANTIL MUNDO ACUARELA</h2>
+     <h2 class="texto_header_1"> JARDIN INFANTIL MUNDO ACUARELA</h2>
      <nav>
      <div class="btn-group espacio_drop" style="margin-right: 10px;">
   <button type="button" class="btn btn-primary col-12" id="reset_b">
   <!-- <i class="bi bi-person icono"></i> -->
-    <p > BIENVENIDO  </p></button>
+    <p class="texto_header"> BIENVENIDO  </p></button>
   <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
   </button>
   <ul class="dropdown-menu">
@@ -909,10 +898,10 @@ body{
              
               <ul class="col-12">
                
-                <li class=" col-12 w">
+                <li class=" w">
                     <span class="iconw"></span>
 
-                  <a href="https://wa.me/573212600725?text=Hola, necesito ayuda con algo.." target="_blank" class="titulo text-light m-1" style="  text-decoration: none;"><span >AYUDA  O INFORMACION ?</span></a>
+                  <a href="https://wa.me/573212600725?text=Hola, necesito ayuda con algo.." target="_blank" class="titulo text-light  " style="  text-decoration: none;"><span >AYUDA  O INFORMACION ?</span></a>
                 </li >
                
             </ul>
