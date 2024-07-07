@@ -195,7 +195,7 @@ width: auto;
 
 .scrol_usuarios{
   width: auto;
-  height: 370px !important;
+  height: 390px !important;
   flex-grow: 1 !important;
   /* overflow-y: scroll; */
 
@@ -318,7 +318,7 @@ display: none;
 display: none;;
 }
 
-#contenido-6{
+#contenido-6 , #contenido-9{
   width:auto ;
   height: 100%;
   flex-grow: 1;
@@ -459,6 +459,17 @@ to { transform: rotate(360deg); }
   0%{-webkit-transform:scale(0);transform: scale(0.9);}
 }
 
+.b{
+  background: #f8b6cc;
+}
+.btn_matricula{
+  background: #b35dfa;
+}
+.btn_matricula:hover{
+  background: #bf80f3;
+}
+
+
 
   @media   (max-width : 400px) {
 
@@ -575,7 +586,7 @@ font-size: small;
     width: auto;
   }
   
-  #contenido-6{
+  #contenido-6,  #contenido-9{
     overflow-y: scroll;
     height: 95%;
     
@@ -585,6 +596,13 @@ font-size: small;
     }
     #contenido-6::-webkit-scrollbar-thumb{
       background-color: #ff8513fd;
+      border-radius: 10px;
+    }
+    #contenido-9::-webkit-scrollbar{
+      width: 10px;
+    }
+    #contenido-9::-webkit-scrollbar-thumb{
+      background-color: #ab9df1;
       border-radius: 10px;
     }
     .text_btn{

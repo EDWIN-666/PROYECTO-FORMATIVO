@@ -12,6 +12,7 @@ $id_usuario_index = $_SESSION['id_usuario'];
  $consul_rol_usuario_index ->execute();
  $resul_index_rol = $consul_rol_usuario_index->fetch();
 
+ $cambio_z_indexprofesor = 3;
  // consulta por si el rol es  profesor, completar su perfil 
 if($resul_index_rol['rol_u']==2){
   $sql_perfil_profesor = $conexion_jardin->prepare("SELECT p.* from profesor as p  WHERE p.ID_profesor =  '$id_usuario_index' ");
@@ -20,6 +21,7 @@ if($resul_index_rol['rol_u']==2){
     // echo '<h1 class="text-light">profesor con perfil completo (esta en la tabla profesor )</h1>';
   }else{
     //  echo '<h1 class="text-light">profesor sin perfil completo ( NOOO esta en la tabla profesor )</h1>'; 
+    $cambio_z_indexprofesor =2;
     echo '<script type="text/javascript">',
 'localStorage.setItem("abrir_modal", "true");',
          '</script>';
@@ -29,6 +31,7 @@ if($resul_index_rol['rol_u']==2){
 
 }
   
+// echo  $cambio_z_indexprofesor ;
 
 //  pedir acceso 
  $consul_peticiones = $conexion_jardin-> prepare("SELECT * FROM usuarios where activo = 0 ;");
@@ -132,7 +135,7 @@ header("location:index_usuarios.php?ac_n=".$actualizacion);//cambios
 $colsulta_niños = null ;
 
 if ($resul_index_rol['rol_u']<>2){
-  $colsulta_niños = $conexion_jardin-> prepare('SELECT a.* , u.*, g.*  from alumno as a INNER join usuarios as u on u.ID_usuario = a.ID_tutor INNER join grupos_clases AS g on g.ID_g_c = a.ID_grupo_fk;');
+  $colsulta_niños = $conexion_jardin-> prepare('SELECT a.*, u.*, g.* FROM alumno AS a LEFT JOIN usuarios AS u ON u.ID_usuario = a.ID_tutor LEFT JOIN grupos_clases AS g ON g.ID_g_c = a.ID_grupo_fk;');
   $colsulta_niños ->execute();
 
 }else {
@@ -462,49 +465,16 @@ if(isset($_POST['desactivar_user'])){
   header("location:index_usuarios.php?ac_n=".$actualizacion);//cambios
   }
 
-  if(isset($_POST['matricula'])){
 
-  }
-  // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //     // Verificar si el archivo fue subido sin errores
-  //     if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
-  //         $uploadedFile = $_FILES['file'];
-  
-  //         // Verificar si el archivo es un PDF
-  //         $fileType = mime_content_type($uploadedFile['tmp_name']);
-  //         if ($fileType === 'application/pdf') {
-  //             // Crear una carpeta para guardar los archivos si no existe
-  //             $uploadDir = 'pdf/';
-  //             if (!is_dir($uploadDir)) {
-  //                 mkdir($uploadDir, 0755, true);
-  //             }
-  
-  //             // Generar un nombre único para el archivo
-  //             $fileName = uniqid() . '-' . basename($uploadedFile['name']);
-  //             $filePath = $uploadDir . $fileName;
-  
-  //             // Mover el archivo a la carpeta de destino
-  //             if (move_uploaded_file($uploadedFile['tmp_name'], $filePath)) {
-  //                 // Obtener la URL del archivo
-  //                 $fileUrl = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $filePath;
-  //                 echo "Archivo subido exitosamente. URL del archivo: <a href='$fileUrl'>$fileUrl</a>";
-  //             } else {
-  //                 echo "Error al mover el archivo.";
-  //             }
-  //         } else {
-  //             echo "El archivo no es un PDF.";
-  //         }
-  //     } else {
-  //         echo "Error al subir el archivo.";
-  //     }
-  // } else {
-  //     echo "Método de solicitud no permitido.";
-  // }
-  
+
   $actualizacion = $_GET['ac_n'] ?? 3 ;//cambios
 $eliminacion = $_GET['el_n'] ?? 3 ;//cambios
 $agregacion = $_GET['ag_n'] ?? 3 ;//cambios
 
+
+
+$matricula = $_GET['v_mtr'] ?? 3 ;
+ 
 ?>
 <!DOCTYPE html>
 <html  lang="es" >
@@ -629,7 +599,7 @@ body{
 
 }elseif( $validacion_com_perf_prof == 0  ){?>
   <div class="col-4 mx-auto">
-<div class="alert alert-danger  fade show alert-dismissible" style="position: absolute; z-index: 1056;" role="alert">
+<div class="alert alert-danger  fade show alert-dismissible" style="position: absolute; z-index: 1059;" role="alert">
   <h4 class="alert-heading">ERROR AL  ENVIAR LOS DATOS </h4>
   <p> <strong>Se Enviaron Datos De Forma Maliciosa  </strong> </p>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"  style=" z-index: 1056;"></button>
@@ -675,7 +645,7 @@ body{
   <p class="mb-0"></p>
 </div>
 </div>
-  <?php }elseif($validacion_observacion_nino_up==0 ){?>
+  <?php }elseif($validacion_observacion_nino_up==0 || $matricula==0 ){?>
     <div class="col-4 mx-auto">
 <div class="alert alert-danger  fade show alert-dismissible" style="position: absolute; z-index: 1056;" role="alert">
   <h4 class="alert-heading">ERROR AL  ENVIAR LOS DATOS </h4>
@@ -720,11 +690,16 @@ body{
   <p class="mb-0">Le recomendamos verificar su información </p> -->
 </div>
 </div>
-<?php  }elseif($agregacion==1){  //cambios?>
+<?php  }elseif($agregacion==1 || $matricula==1 ){  //cambios?>
 <!-- alerta para las sesiones -->
 <div class="col-4 mx-auto">
 <div class="alert alert-info  fade show alert-dismissible" style="position: absolute; z-index: 1055;" role="alert">
-  <h4 class="alert-heading">SE AGREGO EXITOSAMENTE</h4>
+  <h4 class="alert-heading">  <?php if ($matricula ==1 ){ echo 'Se Realizo La Matricula';  }else{
+echo ' SE AGREGO EXITOSAMENTE';
+  } ?>
+ </h4>
+  <?php if ($matricula ==1 ){ echo '<p> <strong>Espere La  Asignacion De Ficha </strong> </p>';  } ?>
+
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
   <!-- <p> <strong>Se han actualizado correctamente los datos </strong> </p>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -734,25 +709,38 @@ body{
 </div>
   <?php } ?>
 
+  <?php if ($matricula==4){?>
+    <div class="col-4 mx-auto">
+<div class="alert alert-danger  fade show alert-dismissible" style="position: absolute; z-index: 1056;" role="alert">
+  <h4 class="alert-heading">ERROR AL ENVIAR EL PDF </h4>
+  <p> <strong>Se Envio Otro  Formato   </strong> </p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"  style=" z-index: 1056;"></button>
+  <hr>
+  <p class="mb-0"> Vuelva A Intentarlo 🤙 </p>
+</div>
+</div>
+    <?php }?>
+
 <!-- FIN DEL  LAS ALERTAS ------------------------------------- -->
 
 
-<header> 
-     <h2 class="texto_header_1"> JARDIN INFANTIL MUNDO ACUARELA</h2>
-     <nav>
-     <div class="btn-group espacio_drop" style="margin-right: 10px;">
-  <button type="button" class="btn btn-primary col-12" id="reset_b">
-  <!-- <i class="bi bi-person icono"></i> -->
-    <p class="texto_header"> BIENVENIDO  </p></button>
-  <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="salir.php">SALIR</a></li>
-    <li><a class="dropdown-item" ><p style="margin-bottom: -5px"> BIENVENIDO  <?php echo $resul_index_rol['nombre_u']," | ",$resul_index_rol['nombre_rol'];?></p></button>
-</a></li>
-  </ul>
-</div>
-     </nav>
+<header>
+    <h2 class="texto_header_1"> JARDIN INFANTIL MUNDO ACUARELA</h2>
+    <nav>
+        <div class="btn-group espacio_drop" <?php if ( $validacion_com_perf_prof == 0 ) { echo 'style="margin-right: 10px; z-index: 1058;"'; } elseif ( $cambio_z_indexprofesor == 2 ) { echo 'style="margin-right: 10px; z-index: 1058;"'; } else { echo 'style="margin-right: 10px;"'; } 
+        ?>>
+            <button type="button" class="btn btn-primary col-12" id="reset_b">
+                <p class="texto_header"> BIENVENIDO </p>
+            </button>
+            <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="salir.php">SALIR</a></li>
+                <li><a class="dropdown-item" ><p style="margin-bottom: -5px"> BIENVENIDO <?php echo $resul_index_rol['nombre_u']," | ",$resul_index_rol['nombre_rol'];?></p></button>
+            </a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 
@@ -839,9 +827,9 @@ body{
     <?php  if($resul_index_rol['rol_u']==3){  ?>
     <button class="boton col-12  boton_js text_btn" id="boton-8">Observación</button>
     <?php } ?>
-    <!-- <?php //if($resul_index_rol['rol_u']==3){  ?>
+    <?php if($resul_index_rol['rol_u']==3){  ?>
     <button class="boton col-12  boton_js text_btn" id="boton-9">Matricula</button>
-    <?php //} ?> -->
+    <?php } ?>
     <!-- <button class="boton" id="boton-7">Botón 7</button>
     <button class="boton" id="boton-8">Botón 8</button> -->
   </div>
@@ -880,9 +868,9 @@ body{
       <?php  if($resul_index_rol['rol_u']==3){  ?>
         <button class=" btn btn-primary col-12 m-2 boton_js" id="boton-8"aria-label="Close" data-bs-target="#offcanvasResponsive"data-bs-dismiss="offcanvas">Observación</button>
       <?php }?>
-      <!-- <?php  //if($resul_index_rol['rol_u']==3){  ?>
+      <?php  if($resul_index_rol['rol_u']==3){  ?>
         <button class=" btn btn-primary col-12 m-2 boton_js" id="boton-9"aria-label="Close" data-bs-target="#offcanvasResponsive"data-bs-dismiss="offcanvas">Matricula</button>
-      <?php //}?> -->
+      <?php }?>
       <!-- <button class="boton" id="boton-6" aria-label="Close" data-bs-target="#offcanvasResponsive"data-bs-dismiss="offcanvas">tutores</button> -->
     <!-- <button class="boton" id="boton-7"aria-label="Close" data-bs-target="#offcanvasResponsive"data-bs-dismiss="offcanvas">Botón 7</button>
     <button class="boton" id="boton-8"aria-label="Close" data-bs-target="#offcanvasResponsive"data-bs-dismiss="offcanvas">Botón 8</button>
@@ -1245,12 +1233,42 @@ while ($profe_tu = $mostar_profesor_tu->fetch(pdo::FETCH_ASSOC)){
 
 <td><?php echo $fila_n['nombre_a']; ?></td>
 <td><?php echo $fila_n['apellido_a']; ?></td>
-<td><?php echo $fila_n['ficha']; ?></td>
+<td><?php if ($fila_n['ficha']== null){ echo 'Pendiente';}else {echo $fila_n['ficha'];} ?></td>
 <td><?php echo $fila_n['doc_identidad']; ?></td>
 <td><?php echo $fila_n['nombre_u']; ?></td>
 <!-- <td>/* echo $fila_n['fecha_nacimiento']; */?></td>  -->
 <td><?php echo $fila_n['edad']; ?></td> 
-<td><?php echo $fila_n['info_eps']; ?></td> 
+<!-- modal para ver el pds ---------------------------------------------- -->
+<td><?php //echo $fila_n['info_eps']; ?>
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $fila_n['ID_alumno']; ?>">
+    Ver
+</button>
+
+<!-- Modal -->
+<div class="col ajuste-col">
+    <div class="modal fade z" id="exampleModal_<?php echo $fila_n['ID_alumno']; ?>" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable rotate-scale-up">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">INFORMACIÓN </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <iframe src="<?php echo 'http://localhost/JARDINMUNDOACUARELA/'.$fila_n['info_eps'];?>" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="modal-footer">
+                    Información Reservada Del jardín
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</td> 
 
 
 
@@ -1833,7 +1851,7 @@ Actualizar
    <label for="inputNombre" class="form-label"  >Nombre</label>
    <input type="text" class="form-control" id="" name="porfile_name" value="<?php echo $resul_index_rol['nombre_u'] ?>" Pattern="[a-zA-Záéíóúü ]+" required="">
  </div>
- <div class="col-6">
+ <div class="col-md-6">
    <label for="inputApellido" class="form-label"  >Apellido</label>
    <input type="text" class="form-control" id="" name="porfile_lastname" value="<?php echo $resul_index_rol['apellido_u'] ?>" Pattern="[a-zA-Záéíóúü ]+" required="">
  </div>
@@ -1858,8 +1876,11 @@ Actualizar
 </form>
    </div>
 
+
+   <!-- generar certificado rol acudiente -->
 <div class="contenido" id="contenido-7">
 <h1 class="text-center">CERTIFICADO</h1><!--CERTIFICADOS PDF-->
+<div class=" tb_scroll scrol_usuarios">
 <p class="fs-5 mt-4">Bienvenidos a los certificados del jardín infantil Mundo Acuarela</p>
 <p class="fs-5">En este apartado tendrá acceso a un certificado de estudio vigente</p>
 <div class="col-6 mx-auto">
@@ -1870,6 +1891,7 @@ Actualizar
          <button type="submit" class="btn btn-info col-12" name="certificado">Descargar</button>
       </div>
    </form>
+</div>
 </div>
 </div>
   
@@ -1904,6 +1926,7 @@ foreach ($resultado_alumnos as $alumno) {
 }
 ?>
 
+<!-- obserbaciones de los niño rol acudientre  -->
 <div class="contenido" id="contenido-8"><!--CONTENIDO 8-->
   <h2 class="text-center">OBSERVACIONES DEL ALUMNO</h2>
    <div class=" tb_scroll table-info  scrol_usuarios">
@@ -1927,16 +1950,57 @@ foreach ($resultado_alumnos as $alumno) {
   <?php endforeach; ?>
 </div>
    </div>
-   <div class="contenido" id="contenido-9"><!--CONTENIDO 8-->
-  <h2 class="text-center">MATRICULA</h2>
-   <div class=" tb_scroll table-info  scrol_usuarios bg-info bg-opacity-25 rounded p-2">
-    <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
-      <label for="">CERTIFICADO EPS</label>
-      <input type="file" class="form-control" name="file" id="file" accept="application/pdf">
-      <input type="submit" class="btn bt-info mt-2" value="Subir">
+
+<!-- matriculas rol acudiente -->
+   <div class="contenido  b p-5  text-primary " id="contenido-9" style="display:block;">
+   
+
+   
+    <h2 class="text-center">MATRICULA</h2>
+    <form  class="row g-3"  action="procesos.php" method="post" enctype="multipart/form-data" >
+    <div class="col-md-6" style="display: none;">
+   <label for="id_n" class="form-label">ID</label>
+   <input type="text" class="form-control" id="id_n" name="tutor_id" value="<?php echo $_SESSION['id_usuario']; ?>">
+ </div>
+ 
+ 
+ <div class="col-md-6  ">
+ 
+   <label for="inputNombre" class="form-label"  >Nombre</label>
+   <input type="text" class="form-control" id="inputNombre" name="nombre_nino_ma"  aria-label="First name"  Pattern="[a-zA-Záéíóúü ]+" title="Solo letras" required="" >
+ </div>
+ 
+ <div class="col-md-6">
+   <label for="inputApellido" class="form-label"  >Apellido</label>
+   <input type="text" class="form-control" id="inputApellido" name="apellido_nino_ma" aria-label="Last name" Pattern="[a-zA-Záéíóúü ]+" title="Solo letras" required="" >
+ </div>
+ <div class="col-md-6">
+   <label for="inputdocument" class="form-label"  >N° Documento</label>
+   <input type="text" class="form-control" id="inputdocument" name="doc_nino_ma"  pattern="\d+"  title="solo numeros documentos" required="">
+ </div>
+ <div class="col-md-6">
+   <label for="inputed" class="form-label"  >Edad </label>
+   <input type="text" class="form-control" id="inputed" name="edad_nino_ma" Pattern="^[1-6]$" title="solo se puede niños de 1 a 6 años" required="">
+ </div>
+
+      <div class="col-md-6  mb-3">       
+  <label for="formFile" class="form-label">CERTIFICADO EPS</label>
+ 
+  <input class="form-control" type="file" id="formFile" name="file" id="file" accept="application/pdf" required="" >
+</div> 
+<div class="col-md-6">
+   <label for="inputFecha" class="form-label"  >Fecha De Nacimiento</label>
+   <input type="date" class="form-control" id="" name="nacimiento_nino_ma" max="<?php echo  date( 'Y-m-d'); ?>" required="" >
+     </div>
+
+
+<div class="col-lg-4  col-sm-12 mx-auto">
+<button type="submit" class="btn btn_matricula mt-2 col-12 text-light" name="matricula_rol_3">Enviar</button>
+</div>
+ <div>
     </form>
 </div>
-   </div>
+   
 
  </div>   <!--contenido de las tablas  main  -->
 

@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,10 @@ ob_start();
         .texto{
             margin: 20px;
         }
+        .logo{
+            width: 80px;
+            height: 70px;
+        }
         /* Incluye aquí más estilos CSS necesarios */
     </style>
 </head>
@@ -43,7 +48,9 @@ if (!$lista) {
 }
 }
 ?>
-<!-- <img src="file:///C:/xampp/htdocs/JARDINMUNDOACUARELA/IMG/LogoLibros.png" alt=""> -->
+
+ <img class="logo" src="http://<?php echo $_SERVER['HTTP_HOST']?>/JARDINMUNDOACUARELA/IMG/LogoLibros.png" alt=""> <!--//cambio para poder usar imagenes  -->
+
  <div class="menu">
  <h1 class="text-center">JARDIN INFANTIL MUNDO ACUARELA</h1>
 
@@ -90,7 +97,7 @@ Jardín Infantil Mundo Acuarela
 </p>
  </div>
  <?php endforeach; ?>
-</body>
+ 
 </html>
 
 <?php
@@ -101,9 +108,9 @@ require_once '../JARDINMUNDOACUARELA/libreria/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
-// $options = $dompdf->getOptions();
-// $options->set(array('isRemoteEnabled' => true));
-// $dompdf->setOptions($options);
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
 $dompdf->loadHtml($html);
 $dompdf->setPaper('letter');
 $dompdf->render();

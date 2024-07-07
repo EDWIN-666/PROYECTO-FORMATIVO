@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use FontLib\Table\Type\name;
+
 include ('conexion_j_i.php');
 
 session_start();
@@ -137,6 +140,107 @@ if($sql_dele_observacion->execute()==true){
     header("location:index_usuarios.php?dn_v_up=".$validacon_dn_update);
 
 }
+
+}
+
+//  realizacion de la matricula  ---------------------------------
+
+$validacion_matricula = 0 ;
+ 
+if(isset($_POST['matricula_rol_3'])){
+
+  $uploadedFile = $_FILES['file'];
+  
+  $nombre_nino = $_POST['nombre_nino_ma'];
+
+  $apellido_nino = $_POST['apellido_nino_ma'];
+  
+  $edad_nino = $_POST['edad_nino_ma'];
+  
+  $nacimento_nino = $_POST['nacimiento_nino_ma'];
+
+  $numre_doc_nino = $_POST['doc_nino_ma'];
+
+  $id_tutor = (int) $_POST['tutor_id'];
+
+
+  if ($uploadedFile['error'] !== 0) {
+    $validacion_matricula  = 4;
+
+     header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+     
+    // echo "Error uploading file: " . $uploadedFile['error'];
+    exit;
+  }
+
+    
+  $mimeType = $uploadedFile['type'];
+  if ($mimeType !== 'application/pdf') {
+    $validacion_matricula  = 4;
+
+     header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+     
+    // echo "  Invalid file  tipo ";
+    exit;
+  }
+
+
+  if (!preg_match('/^[a-zA-Záéíóúü ]+$/',  $nombre_nino ) || !preg_match('/^[a-zA-Záéíóúü ]+$/',   $apellido_nino ) ) {
+        
+     header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+    // echo 'fallo nombre o apellido ';
+    
+}elseif ( $edad_nino > 6  ||  $edad_nino < 1) {
+    // echo 'edad ';
+
+    
+     header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+    
+}elseif (  !preg_match('/^[\d+]+$/',   $numre_doc_nino  )) {
+    // echo 'docuemnto ';
+
+     header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+
+}else{
+
+    $nombre_pdf = $uploadedFile['name'];
+  $temportal_url = $uploadedFile['tmp_name'];
+
+  $nombre_unico = uniqid() . '_' . $nombre_pdf;
+  $ruta = "public/pdf/" . $nombre_unico;
+
+  $nombre_unico = uniqid().'_' .$nombre_pdf;
+      $ruta = "public/pdf/".$nombre_unico;
+  
+       move_uploaded_file($temportal_url,$ruta);
+  
+    //   echo $ruta; 
+
+    $sql_insert_ninno = $conexion_jardin->prepare("INSERT INTO  alumno(ID_tutor,nombre_a,apellido_a , doc_identidad,fecha_nacimiento, edad , info_eps )
+    value( :id , :nom ,:ape ,:doc, :fech ,:edad ,:eps );");
+
+$sql_insert_ninno->bindParam(':id',$id_tutor, PDO::PARAM_INT);
+$sql_insert_ninno->bindParam(':nom',$nombre_nino, PDO::PARAM_STR);
+$sql_insert_ninno->bindParam(':ape',$apellido_nino, PDO::PARAM_STR);
+$sql_insert_ninno->bindParam(':doc',$numre_doc_nino, PDO::PARAM_STR);
+$sql_insert_ninno->bindParam(':fech',$nacimento_nino, PDO::PARAM_STR);
+$sql_insert_ninno->bindParam(':edad',$edad_nino, PDO::PARAM_INT);
+$sql_insert_ninno->bindParam(':eps',$ruta, PDO::PARAM_STR);
+
+
+
+  if ( $sql_insert_ninno->execute() ==true ){ 
+        $validacion_matricula  = 1;
+
+         header("location:index_usuarios.php?v_mtr=".$validacion_matricula);
+         
+    //  echo "<br/> File uploaded successfully!";
+    }else{
+        // echo 'fallo la insercion'; 
+    }
+
+}
+    
 
 }
 
