@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Handlee&family=Lobster&display=swap');
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Handlee',cursive;
+    overflow: hidden !important;
+    display: grid;
+    place-items: center;
+    background-image: url('../img/pixelcut-export.png');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center;
+  background-attachment: fixed;
+
+
+    
+}
+html{
+    height: 600px !important;
+}
+.swal2-container {
+    z-index: 9999 !important; /* Asegúrate de que el modal esté por encima de otros elementos */
+}
+div:where(.swal2-container).swal2-center>.swal2-popup {
+    grid-column: 2;
+    grid-row: 2;
+    place-self: center center;
+    width: 310px;
+}
+
+
+.popover{
+    border: rgba(0, 0, 0, 0.966) solid 2px;
+    
+}
+.popover-header{
+    background: rgb(197, 18, 18);
+    color: antiquewhite;
+    border-bottom: none;
+    display: flex;
+    place-content: center;
+} 
+ 
+
+.formulario {
+    margin-top: 10px;
+    width: 500px;
+    height:  510px ;
+    /* background-color: #85cff1;  */
+    background: #46bcda63;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    box-shadow: 6px 7px 9px 0 black;
+    overflow-y: scroll;
+    
+    
+    
+}
+
+.formulario::-webkit-scrollbar{
+    width: 10px;
+  }
+  .formulario::-webkit-scrollbar-thumb{
+    background-color: #ff9e0d;
+    border-radius: 10px;
+  }
+
+
+.logo{
+    width: 50px;
+    height: 40px;
+
+}
+
+.color_title{
+color: black !important;
+
+}
+.ajuste_toast{
+    background-image: url('../img/FondoMenu.jpg');
+    border: green 3px solid;
+    background-size: cover;
+
+}
+.ajuste_toast_red{
+    background-image: url('../img/FondoMenu.jpg');
+    border: rgb(252, 11, 11) 3px solid;
+    background-size: cover;
+
+}
+
+.titulo{
+margin-top: 20px;
+}
+.btn:hover{
+background: rgb(56, 185, 16);
+border: solid rgb(56, 185, 16) 1px;
+}
+
+
+h1{
+/* text-transform: uppercase; */
+letter-spacing: 4px;
+font-weight:bolder;
+text-shadow: 6px 7px 9px  #49548f ;
+background: linear-gradient(rgb(18, 13, 19) 50%,rgb(66, 124, 231) 65%);
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+
+
+
+@media (max-width: 890px) {
+    body { background-image: url('../img/form_acncho_890.png');
+
+     }
+}
+
+@media (max-width: 638px) {
+    body { background-image: url('../img/500.png');
+     } 
+      h1{
+        text-wrap: balance;
+    }
+    .contain_titulo{
+        width: 300px;
+        left: 45px;
+        position: relative;
+    }
+}
+
+@media (max-width: 575px) {
+    .formulario {
+        width: 300px;
+        overflow-y: scroll;
+        height: 400px;
+    }
+
+    .responsive_input{
+        display: flex;
+        justify-content:center;
+        place-items: center;
+        flex-direction: column;
+    }
+  
+  
+  
+}
+
+
+
+
+@media (max-width: 390px) {
+    body { background-image: url('../img/350.png');
+     }
+}

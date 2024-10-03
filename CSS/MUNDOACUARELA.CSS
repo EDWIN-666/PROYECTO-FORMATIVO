@@ -6,11 +6,27 @@
     padding: 0;
 }
 body{
+    overflow-y:scroll;
     font-family: 'Chewy', cursive;
     background-size: contain;
-    background: url(../IMG/OTROFONDOX2.png);
+    background: url(../img/OTROFONDOX2.png);
     background-attachment: fixed;
 }
+body::-webkit-scrollbar{
+    width: 10px;
+    background-color:  #0DCCF2;
+  border-radius: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb{
+    background-color: #ffffff;
+  border-radius: 10px;
+  }
+  
+.ajuste_nav{
+    flex-grow: 1; 
+}
+
 /* div .seccion{
     width: 100%;
     position: relative;
@@ -69,7 +85,7 @@ div .Imagencastillo{
     position: absolute;
     width: 50%;
     height: 130px;
-    background: url(../IMG/pngwing.com\ \(2\).png);
+    background: url(../img/pngwing.com\ \(2\).png);
     background-size: contain;
     animation: wind 5s ease-in-out infinite;
     background-repeat: no-repeat;
@@ -102,6 +118,9 @@ div .GradosJardin2{
     height: 200px;
     justify-content: center;
     flex-wrap: wrap;
+}
+.navbar-toggler {
+    border: 3px solid rgb(255, 255, 255) !important;
 }
 /* div .salacuna {
     cursor: pointer;
@@ -250,27 +269,27 @@ div .textotn p{
     text-shadow: -4px 2.5px rgb(43, 39, 39); 
 }
 div .iconosc{
-    background: url(../IMG/bebita.png);
+    background: url(../img/bebita.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 div .iconops{
-    background: url(../IMG/bloques.png);
+    background: url(../img/bloques.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 div .iconopn{
-    background: url(../IMG/jugando.png);
+    background: url(../img/jugando.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 div .iconojn{
-    background: url(../IMG/Jugar.png);
+    background: url(../img/Jugar.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 div .iconotn{
-    background: url(../IMG/confianza.png);
+    background: url(../img/confianza.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -316,7 +335,7 @@ div .transicion{
     position: relative;
     /* animation: girar 10s linear infinite; */
     background-size: contain;
-    background: url(../IMG/fondomensajea.png);
+    background: url(../img/fondomensajea.png);
     background-repeat: no-repeat;
 
 }
@@ -462,7 +481,7 @@ div .serviciosA{
     width: 40%;
 }
 .imagenservicios{
-    background: url(../IMG/ninos-y-ninas-jugando-en-la-hierba.jpg);
+    background: url(../img/ninos-y-ninas-jugando-en-la-hierba.jpg);
     background-size: cover;
     width: 60%;
     height: 400px;
@@ -501,7 +520,7 @@ div .serviciosA ul a{
     position: relative;
     display:flex;
     margin: 20px; 
-    background: url(../IMG/imagen11.jpg);
+    background: url(../img/imagen11.jpg);
     background-size: cover;
     border-radius: 20px;
     box-shadow: 6px 6px rgba(25, 179, 240, 0.319);
@@ -524,7 +543,7 @@ div .serviciosA ul a{
 
 .certificado{
     position: absolute;
-    background: url(../IMG/fondopaisale.jpg);
+    background: url(../img/fondopaisale.jpg);
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -560,7 +579,7 @@ div .serviciosA ul a{
     width: 22%;
     height: 78px;
     margin: 10px;
-    background: url(../IMG/MINSALUD.png);
+    background: url(../img/MINSALUD.png);
     background-size: cover;
 }
 .educacion{
@@ -572,7 +591,7 @@ div .serviciosA ul a{
     width: 22%;
     height: 78px;
     margin: 10px;
-    background: url(../IMG/ministerioeducacion.png);
+    background: url(../img/ministerioeducacion.png);
     background-size: cover;
 }
 .mintic{
@@ -584,7 +603,7 @@ div .serviciosA ul a{
     width: 22%;
     height: 78px;
     margin: 10px;
-    background: url(../IMG/MINTIC\ \(1\).png);
+    background: url(../img/MINTIC\ \(1\).png);
     background-size: cover;
 }
 .cultura{
@@ -595,7 +614,7 @@ div .serviciosA ul a{
     text-align: center;
     width: 22%;
     height: 78px;
-    background: url(../IMG/banner-ministerio-de-cultura.png);
+    background: url(../img/banner-ministerio-de-cultura.png);
     background-size: cover;
 }
 footer{
@@ -605,7 +624,7 @@ footer{
     width: 100%;
     text-align: center;
     height: 350px;
-    background: url(../IMG/pngwing.com.png);
+    background: url(../img/pngwing.com.png);
 }
 .footerservicios{
     display: flex;
@@ -635,7 +654,7 @@ footer{
     height: 300px;
     margin: 10px;
     width: 15%;
-    background: url(../IMG/cuadro.png);
+    background: url(../img/cuadro.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -698,25 +717,25 @@ div .footerservicios ul a:hover{
 .w{
     cursor: pointer;
     margin: 10px;
-    background: url(../IMG/whatsapp.png);
+    background: url(../img/whatsapp.png);
     background-size: cover;
 }
-.f{
+.f{ 
     cursor: pointer;
     margin: 10px;
-    background: url(../IMG/facebook.png);
+    background: url(../img/facebook.png);
     background-size: cover;
 }
 .t{
     cursor: pointer;
     margin: 10px;
-    background: url(../IMG/gorjeo.png);
+    background: url(../img/gorjeo.png);
     background-size: cover;
 }
 .i{
     cursor: pointer;
     margin: 10px;
-    background: url(../IMG/instagram.png);
+    background: url(../img/instagram.png);
     background-size: cover;
 }
 .redesfooter ul li {
@@ -804,4 +823,8 @@ to { transform: rotate(360deg); }
 }
 @keyframes ampliar{
     0%{-webkit-transform:scale(0);transform: scale(0.9);}
+}
+
+@media   (max-width : 400px) {
+    
 }

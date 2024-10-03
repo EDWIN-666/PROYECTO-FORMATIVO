@@ -69,6 +69,34 @@ $(document).ready(function() {
    
     localStorage.removeItem("abrir_modal");
 }
+
+
+window.abrir_mdl_acu = function() {
+  var acudiente = document.getElementById('acudiente_modal');
+  var modal_cu = new bootstrap.Modal(acudiente);
+  modal_cu.show();
+}
+
+if (localStorage.getItem("modal_acudiente") === "true") {
+abrir_mdl_acu();
+
+localStorage.removeItem("modal_acudiente");
+}
+
 });
 
+// funcion de imagen
+
+function cambiarFoto(event, imgId) {
+  var input = event.target;
+  var reader = new FileReader();
+
+  reader.onload = function(){
+    var dataURL = reader.result;
+    var img = document.getElementById(imgId);
+    img.src = dataURL;
+  };
+
+  reader.readAsDataURL(input.files[0]);
+}
 

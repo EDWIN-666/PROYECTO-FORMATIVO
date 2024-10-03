@@ -7,7 +7,7 @@ $id_nino = $_SESSION['id_nino_ajax'] ?? null;
 
 if ($id_nino) {
     $result_buscar_observacion = null;
-    $sql_buscar_observacion = $conexion_jardin->prepare("SELECT * FROM observaciones WHERE id_nino_fk = :id_nino");
+    $sql_buscar_observacion = $conexion_jardin->prepare("SELECT * FROM observaciones WHERE id_nino_fk = :id_nino ORDER BY fecha_hora_creacion ;");
     $sql_buscar_observacion->bindParam(':id_nino', $id_nino, PDO::PARAM_INT);
     if ($sql_buscar_observacion->execute()) {
         $result_buscar_observacion = $sql_buscar_observacion->fetchAll(PDO::FETCH_ASSOC);
@@ -52,7 +52,6 @@ if ($id_nino) {
   }*/
 }
 body{
-  background: url(IMG/Diseño\ sin\ título.png);
   font-family: 'Handlee',cursive;
 }
 .xd{

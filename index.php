@@ -4,10 +4,10 @@
     <title>Jardin Infantil Mundo Acuarela</title>
     <meta charset="UTF-8"><!--Caracteres especiales-->
     <link rel="stylesheet" type="text/css" href="CSS/MUNDOACUARELA.CSS">
-    <link rel="icon" type="image/vnd.icon" href="IMG/LogoLibros.png">
+    <link rel="icon" type="image/vnd.icon" href="img/LogoLibros.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/MUNDOACUARELA.CSS">
+<link rel="stylesheet" href="CSS/bootstrap.css">
+<link rel="stylesheet" href="CSS/MUNDOACUARELA.CSS">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Handlee&family=Lobster&display=swap');
@@ -57,19 +57,12 @@ ul, .servers{
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 ajuste_nav" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
             <a class="nav-link active bg-success fs-5 mt-2 m-1 rounded-4 p-2 bg-opacity-50" aria-current="page" href="#inicio">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="#servicios">Servicios</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="#">Institucionales</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" aria-current="page" href="#">Matriculas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="#escuela">Escuela Familiar</a>
@@ -78,16 +71,10 @@ ul, .servers{
             <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="#galeria">Galeria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="#contactenos">Contactenos</a>
+            <a class="nav-link active bg-success fs-5 mt-2 m-2 rounded-4 p-2 bg-opacity-50" href="./formulario_atencion.php" target="_blank">Contactenos</a>
           </li>
           <li class="nav-item">
-            <button class="btn" type="submit"><a  href="index_sesion.php">  <img src="IMG/agregar-usuario.png" alt="" width="45px"></a></button></li>
-          <li>
-          <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
-            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
-            <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
-          </svg></button>
-        </li>
+            <button class="btn" type="submit"><a  href="index_sesion.php">  <img src="img/agregar-usuario.png" alt="" width="45px"></a></button></li>
         </ul>
       </div>
     </div>
@@ -196,7 +183,7 @@ ul, .servers{
         </div>
         <div class="row">
           <div class="col-lg-6 col-sm-12 mt-5">
-            <img src="IMG/fondomensaje.png" class="col-lg-12 col-sm-8 img-fluid mx-auto d-block" alt="">
+            <img src="img/fondomensaje.png" class="col-lg-12 col-sm-8 img-fluid mx-auto d-block" alt="">
             </div>
 
             <div class="col-lg-6 col-sm-12">
@@ -228,7 +215,7 @@ ul, .servers{
         <p class="fs-3 mt-5 col-12 text-center pb-5"><a href="" style="font-family: handlee;" class="text-danger link-offset-2 link-underline link-underline-opacity-0">Terapia ocupacional</a></p>
         </div>
         <div class="col-lg-6 col-sm-10 mx-auto">
-        <img src="IMG/ninos-y-ninas-jugando-en-la-hierba.jpg" alt="" class="col-12 rounded ">
+        <img src="img/ninos-y-ninas-jugando-en-la-hierba.jpg" alt="" class="col-12 rounded ">
         </div>
         <div class="col-lg-3 col-sm-12">
         <p class="fs-3 mt-5 col-12 text-center pb-5"><a href="" style="font-family: handlee;" class="text-warning  link-offset-2 link-underline link-underline-opacity-0">Psicologia</a></p>
@@ -238,15 +225,15 @@ ul, .servers{
         </div>
 
          <div class="row" id="galeria">
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen11.jpg" class="imagen img-fluid  rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="IMG/galeria.jpg" class="imagen img-fluid rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen13.jpg" class="imagen img-fluid  rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen21.jpg" class="imagen img-fluid  rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="IMG/imagen22.jpg" class="imagen img-fluid rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen23.jpg" class="imagen img-fluid  rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen31.jpg" class="imagen img-fluid  rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="IMG/imagen32.jpg" class="imagen img-fluid rounded" alt=""></div>
-          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="IMG/imagen33.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen11.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="img/galeria.jpg" class="imagen img-fluid rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen13.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen21.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="img/imagen22.jpg" class="imagen img-fluid rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen23.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen31.jpg" class="imagen img-fluid  rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto">  <img src="img/imagen32.jpg" class="imagen img-fluid rounded" alt=""></div>
+          <div class="col-lg-4 col-sm-8 mx-auto"> <img src="img/imagen33.jpg" class="imagen img-fluid  rounded" alt=""></div>
          </div>
          <div class="row">
           <div class="col-12"><h2 class="matriculas col-12">MATRICULAS ABIERTAS AÑO LECTIVO</h2>
@@ -254,13 +241,13 @@ ul, .servers{
                 para ayudarlos a su desarrollo y brindarles nuestro conocimiento. Aprendemos de la manera
                 mas divertida y educativa brindando un desarrollo de calidad
             </p></b> </div>
-            <div class="col-lg-3 col-sm-6"> <img src="IMG/banner-ministerio-de-cultura.png" class="imagenx img-fluid  rounded" alt=""></div>
-            <div class="col-lg-3 col-sm-6"> <img src="IMG/MINTIC (1).png" class="imagenx img-fluid  rounded" alt=""></div>
-            <div class="col-lg-3 col-sm-6">  <img src="IMG/MINSALUD.png" class="imagenx img-fluid rounded" alt=""></div>
-            <div class="col-lg-3 col-sm-6"> <img src="IMG/educacion.png" class="imagenx img-fluid  rounded" alt=""></div>
+            <div class="col-lg-3 col-sm-6"> <img src="img/banner-ministerio-de-cultura.png" class="imagenx img-fluid  rounded" alt=""></div>
+            <div class="col-lg-3 col-sm-6"> <img src="img/MINTIC (1).png" class="imagenx img-fluid  rounded" alt=""></div>
+            <div class="col-lg-3 col-sm-6">  <img src="img/MINSALUD.png" class="imagenx img-fluid rounded" alt=""></div>
+            <div class="col-lg-3 col-sm-6"> <img src="img/educacion.png" class="imagenx img-fluid  rounded" alt=""></div>
           </div>
           <div class="row mt-5 bg-primary bg-opacity-75 rounded-5" id="contactenos">
-            <div class="col-lg-3 col-sm-12"><img src="IMG/cuadro.png" class="img-fluid col-8" alt="">         
+            <div class="col-lg-3 col-sm-12"><img src="img/cuadro.png" class="img-fluid col-8" alt="">         
             <p class="fs-2 text-info text-center texto">JARDIN INFANTIL <b>MUNDO ACUARELA</b></p>
             </div>
             <div class="col-lg-3 col-sm-12"><h2 class="text-center fs-1 text-info">Contáctenos</h2>

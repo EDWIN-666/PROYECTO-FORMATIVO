@@ -8,7 +8,7 @@ ob_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/vnd.icon" href="IMG/LogoLibros.png">
+    <link rel="icon" type="image/vnd.icon" href="img/LogoLibros.png">
     <title>Reportes</title>
     <style>
         body {
@@ -35,21 +35,28 @@ ob_start();
 </head>
 <body>
 <?php
+$validacion = 1 ;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['identificacion'])) {
 $identificacion = $_POST['identificacion'];
+
+if ($identificacion == null || $identificacion == ' ') {
+    $validacion = 2 ; 
+header("location:index_usuarios.php?certi_v=" . $validacion);
+}
 include ('conexion_j_i.php');
 $sql = $conexion_jardin->prepare("SELECT * from alumno where doc_identidad = :identificacion");
 $sql->bindParam(':identificacion', $identificacion, PDO::PARAM_STR);
 $sql->execute();
 $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
 if (!$lista) {
-    
-    echo "No se encontró un alumno con ese número de identificación.";
+    $validacion = 2 ; 
+header("location:index_usuarios.php?certi_v=" . $validacion);
 }
 }
 ?>
+<!-- <img class="logo" src="http://<?php // echo $_SERVER['HTTP_HOST']?>/mundoacuarela/img/LogoLibros.png" alt=""> cambio para poder usar imagenes  -->
 
- <img class="logo" src="http://<?php echo $_SERVER['HTTP_HOST']?>/JARDINMUNDOACUARELA/IMG/LogoLibros.png" alt=""> <!--//cambio para poder usar imagenes  -->
+ <img class="logo" src="https://proyectosjevl.com/mundoacuarela/img/LogoLibros.png" alt=""> <!--//cambio para poder usar imagenes  en el server -->
 
  <div class="menu">
  <h1 class="text-center">JARDIN INFANTIL MUNDO ACUARELA</h1>
@@ -103,8 +110,9 @@ Jardín Infantil Mundo Acuarela
 <?php
 $html = ob_get_clean();
 // echo $html;
-require_once '../JARDINMUNDOACUARELA/libreria/dompdf/autoload.inc.php';
+ require_once '../mundoacuarela/libreria/dompdf/autoload.inc.php';
 
+//require_once '../JARDINMUNDOACUARELA/libreria/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();

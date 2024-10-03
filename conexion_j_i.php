@@ -2,11 +2,13 @@
 date_default_timezone_set('America/Bogota');
 
  $server_p="localhost";
+// $user = "u459296459_root";
+// $password = "Adso2024**";
+// $bd = "u459296459_jardininfantil";
+
 $user = "root";
 $password = "";
 $bd = "jardin_infantil";
-
-
 
 try{
     $conexion_jardin= new PDO('mysql:host=localhost;dbname='.$bd,$user,$password);

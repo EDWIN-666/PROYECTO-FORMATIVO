@@ -1,10 +1,10 @@
 body{
     overflow: hidden;
-    background-image: url("../IMG/Proyecto\ nuevo.png");
+    /* background-image: url("../img/Proyecto\ nuevo.png"); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-   
+    background: url("../img/Diseño%20sin%20título.png");
 
    
 
@@ -18,7 +18,7 @@ body{
 }
 
 header{
-    background-image: url("../IMG/banner_nav-header_new.jpg") ;
+    background-image: url("../img/banner_nav-header_new.jpg") ;
     width: 100%;
     height: 70px;
     background-size: cover;
@@ -59,7 +59,7 @@ header{
 
 /* width: 700px; */
 width: auto;
-        background:lemonchiffon;
+background:rgb(205, 255, 224);
         flex-grow: 1; /*Permite que main se expanda*/
         margin-right: 20px; 
         padding: 20px;
@@ -204,6 +204,19 @@ width: auto;
 .xd{
   background: rgb(255, 213, 250);
 }
+.cuerpo_form{
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+#salir{
+  background: rgb(231, 68, 95); 
+}
+#salir:hover{
+background: rgb(218, 13, 13); 
+color: #fff;
+
+}
 
 table .head td{
     color: #585454;
@@ -217,7 +230,7 @@ table tr td{
     border:1px solid #ccc;
     padding: 7px;
     font-size: 14px;
-    color: #555;
+    color: #000000;
 }
 
 
@@ -373,14 +386,39 @@ display: none;;
 
 }
 
+.ajuto_carnert{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
 
+
+.avatar {
+  width: 100px; /* Ajusta el ancho según tus necesidades */
+  height: 100px;
+ 
+}
+
+.form-group_ajust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .w{
   cursor: pointer;
   margin: 10px;
-  background: url(../IMG/whatsapp.png);
+  background: url(../img/whatsapp.png);
   background-size: cover;
+}
+
+.contac{
+  cursor: pointer;
+  margin: 10px;
+  background: url(../img/formulario-de-contacto.png);
+  background-size: cover;
+  z-index: 1;
 }
 .redesfooter ul li {
   position: absolute;
@@ -398,14 +436,49 @@ display: none;;
   left: -25px;
 
 }
+.redesfooter_contac ul li {
+  position: absolute;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  /* border-radius: 60px; */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  font-family: 'handlee',cursive;
+  left: -25px;
+
+}
 .redesfooter ul li:hover {
   width: 180px;
 }
+.redesfooter_contac ul li:hover {
+  border-radius: 60px;
+  width: 180px;
+}
+
 .w:hover {
   background: rgb(31, 175, 45);
   box-shadow: 0 10px 25px rgb(87, 255, 40);
 }
+.contac:hover{
+  background: rgb(219, 168, 28);
+  box-shadow: 0 10px 25px rgb(218, 189, 60);
+
+}
 .redesfooter ul li .titulo {
+  color: #000000;
+  font-size: 12px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+.redesfooter_contac ul li .titulo {
   color: #000000;
   font-size: 12px !important;
   text-transform: uppercase;
@@ -420,11 +493,21 @@ display: none;;
   transition-delay: 0.25;
   
 }
+.redesfooter_contac li:hover .titulo{
+  transform: scale(1);
+  transition-delay:0.25;
+  
+}
 .espacio_whap{
   position: absolute;
   display: flex;
   margin-top: 400px;
  
+}
+
+.ajust_carnet{
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes wind {
@@ -469,10 +552,126 @@ to { transform: rotate(360deg); }
   background: #bf80f3;
 }
 
+#contenido-9{
+  overflow-y: scroll;
+  height: 95%;
+  
+}
+#contenido-9::-webkit-scrollbar{
+  width: 10px;
+}
+#contenido-9::-webkit-scrollbar-thumb{
+  background-color: #ab9df1;
+  border-radius: 10px;
+}
+
+.centro_carnert{
+ width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+ 
+ 
+}
 
 
+
+
+.img-fluid{
+  height: 214px !important;
+  border-radius: 50% !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    background: #68e0f8 !important;
+   
+   
+}
+
+.fondo_card{
+  background-image: url('https://proyectosjevl.com/mundoacuarela/img/FondoMenu.jpg');
+  background-size: cover;
+
+}
+
+.title_config_card{
+  font-size: 30px;
+  display: grid;
+  justify-content: center;
+}
+
+.ajuste_badge{
+  margin-left: 20px;
+  
+}
+/* .ajuste_badge_button{
+  margin-bottom: 20px;
+} */
+
+.img_nino_poper{
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  border: #000000 solid 1px;
+  border-radius: 10px ;
+  
+}
+
+.popover-header {
+  background: #b970ff !important;
+  color: #ffffff !important;
+  border: solid 2px #8b44cf;
+  border-bottom: none !important;
+}
+.popover-body{
+  border: solid 2px #8b44cf;
+  border-top: none;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.ajuste_alerta_variada{
+  width: 300px !important;
+  height: 300px;
+  overflow-y:scroll ;
+  
+}
+
+.ajuste_alerta_variada::-webkit-scrollbar{
+  width: 10px;
+}   
+.ajuste_alerta_variada::-webkit-scrollbar-thumb{
+  background-color: #fc635dfd;
+  border-radius: 10px;
+}
+
+@media   (max-width : 457px) {
+  .ajuste_perfil_profe_espacio{
+    width: 300px;
+    display: flex !important;
+   
+      
+ 
+  }
+  .ajuste_perfil_profe{
+    /* width: 400px; */
+  
+    flex-direction: column !important;
+  }
+
+  .ajuste_alerta_variada{
+    margin-right: 30px !important;
+    width: 250px !important ;
+  }
+  
+}
   @media   (max-width : 400px) {
+.ajuste_alerta_variada{
+  width: 200px !important; 
+  height: 380px !important;
+ 
 
+}
     .tama_btn{
         width: auto;
      
@@ -541,6 +740,7 @@ table{
   left: 75px;
 
 }
+
       
 
     }
@@ -585,8 +785,13 @@ font-size: small;
   .main{
     width: auto;
   }
+
+  #contenido-9{
+    overflow-y: scroll;
+    height: 95%;
+  }
   
-  #contenido-6,  #contenido-9{
+  #contenido-6{
     overflow-y: scroll;
     height: 95%;
     

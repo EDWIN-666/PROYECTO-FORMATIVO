@@ -7,7 +7,7 @@ ob_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/vnd.icon" href="IMG/LogoLibros.png">
+    <link rel="icon" type="image/vnd.icon" href="img/LogoLibros.png">
     <title>Reportes</title>
     <style>
         body {
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['identificacion'])) {
 
 <?php
 $html = ob_get_clean();
-require_once '../JARDINMUNDOACUARELA/libreria/dompdf/autoload.inc.php';
+require_once '../mundoacuarela/libreria/dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
 
@@ -141,5 +141,5 @@ $dompdf = new Dompdf();
 $dompdf->loadHtml($html);
 $dompdf->setPaper('letter');
 $dompdf->render();
-$dompdf->stream("reporte.pdf", array("Attachment" => false));
+$dompdf->stream("reporte.pdf", array("Attachment" => true));
 ?>

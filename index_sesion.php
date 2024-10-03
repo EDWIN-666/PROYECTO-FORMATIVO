@@ -7,6 +7,8 @@ $alertamenor=false;
 $errorpolitica=false;
 $error_cuenta = false ;
 $error_cu_activo= false ;
+$error_registro= false ;
+
 if (isset($_POST['registrar'])) {
   $nombre_reg = $_POST['nombre_reg'];
   $apellido_reg = $_POST['apellido_reg'];
@@ -27,10 +29,15 @@ if (isset($_POST['registrar'])) {
       if ($revisar_correo->rowCount() > 0) {
           $error_alerta = "El correo ya está registrado.";
 
-      }elseif($edad < 18){
-        echo "El usuario debe ser mayor de 18 años";
+      }elseif($edad < 18 || $edad>90){
+        // echo "El usuario debe ser mayor de 18 años";
         $alertamenor = true;
       
+      }elseif(!preg_match('/^[a-zA-ZáéíóúüÑñ][a-zA-ZáéíóúüÑñ\s]*$/', $nombre_reg) ||  !preg_match('/^[a-zA-ZáéíóúüÑñ][a-zA-ZáéíóúüÑñ\s]*$/', $apellido_reg) 
+      || !preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/' , $correo_reg )){
+        $error_registro=true;
+        
+
       } else {
           // Insertar registro con rol_u como NULL
           $insertar_regisrtro = $conexion_jardin->prepare('INSERT INTO usuarios (nombre_u, apellido_u, correo_u, Contrasena_u, rol_u,fechanacimiento) VALUES (:nombre_reg, :apellido_reg, :correo_reg, :contra_reg, NULL,:fechanacimiento);');
@@ -154,11 +161,13 @@ if (isset($_POST['contra_form'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/vnd.icon" href="IMG/LogoLibros.png">
+
+    <link rel="icon" type="image/vnd.icon" href="img/LogoLibros.png">
+        <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link  rel="stylesheet"  href="css_J_I/estilo_sesion.css">
     <title> Inicio sesion </title>
     <style>
+      
         @media only screen and (max-width: 450px) {
     .texto {
       font-size: 16px; /* Reducir el tamaño de la fuente para pantallas más pequeñas */
@@ -190,7 +199,7 @@ if (isset($_POST['contra_form'])) {
         <button class="btn btn-primary col-lg-4 col-sm-6" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
     <div class="btn-txt"> ¿Olvido Su Contraseña...? </div>
 </button>
-<a href="principal.php" class="btn btn-warning ms-2 col-lg-4 col-sm-6">Regresar</a>
+<a href="index.php" class="btn btn-warning ms-2 col-lg-4 col-sm-6">Regresar</a>
 </div>
 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
   <div class="offcanvas-header">
@@ -201,9 +210,11 @@ if (isset($_POST['contra_form'])) {
     <div>
     <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
 <div class=" mb-3">
-<label for="floatingInput"> </label>
-<input type="email" placeholder="Correo" class="form-control mb-2" id="floatingInput" name="CORREO_B" required>
-<input type="date" placeholder="Fecha de Nacimiento" class="form-control" id="floatingInput" name="nacver" required>
+<label for="floatingInput" class="label_bus">Ingrese correo </label>
+<input type="email" placeholder="ejemplo@gmail.com" class="form-control mb-2" id="floatingInput" name="CORREO_B" required>
+
+<label for="floatingInput_fecha" class="label_bus">Fecha Nacimiento (la usada al momento de resgistrase) </label>
+<input type="date" placeholder="Fecha de Nacimiento" class="form-control" id="floatingInput_fecha" name="nacver" required>
 </div>
 <div class="d-flex justify-content-center">
 <input  type="submit" name="buscar_correo" class="btn btn-success btn-md "  value="BUSCAR">
@@ -218,29 +229,32 @@ if (isset($_POST['contra_form'])) {
 				<form class="form row"  action="<?php $_SERVER['PHP_SELF'] ?>"  method="post" >
 					<label for="chk" aria-hidden="true" class="textor">REGISTRARSE🔺</label>
 					<div class="input-group  ">
-  <span class="input-group-text  col-12 col-sm-4 textop" style="font-size: 14px;">NOMBRE Y APELLIDO</span>
+  <span class="input-group-text  col-12 col-sm-4 textop" >NOMBRE Y APELLIDO</span>
   <input type="text" aria-label="First name" name="nombre_reg" placeholder="Nombre" class="form-control  col-sm-6  col-sm-4 " Pattern="[a-zA-Záéíóúü ]+" required="">
   <input type="text" aria-label="Last name" name="apellido_reg" placeholder="Apellido" class="form-control  col-sm-6  col-md-4 " Pattern="[a-zA-Záéíóúü ]+"  required="">
 </div>
 					<!-- <input class="input" type="text" name="nombre_res" placeholder="NOMBRE" required=""> -->
 					<div class="input-group  ">
-  <span class="input-group-text col-12 col-sm-4  textop" style="font-size: 14px;">CORREO Y CONTRASEÑA</span>
+  <span class="input-group-text col-12 col-sm-4  textop" >CORREO Y CONTRASEÑA</span>
   <input type="email" aria-label="First name" name="correo_reg" placeholder="Correo" class="form-control col-sm-6  col-sm-4  "  required="">
   <input type="password" aria-label="Last name" name="contra_reg" placeholder="Contraseña" class="form-control  col-sm-6  col-sm-4 " required="">
 </div>
 <div class="input-group  ">
-  <span class="input-group-text col-12 col-sm-4  textop" style="font-size: 14px;">FECHA DE NACIMIENTO </span>
+  <span class="input-group-text col-12 col-sm-4  textop" >FECHA DE NACIMIENTO </span>
   <input type="date" aria-label="First name" name="fechanacimiento" placeholder="Fecha de Nacimiento" class="form-control col-sm-6  col-sm-4  "  required="">
 </div>
 
 <?php
             if (isset($error) && !empty($error)) {
-                echo '<div class="alert alert-danger" role="alert">
+                echo '<div class="alert alert-danger fade show alert-dismissible ajuste_errores" role="alert">   
+  <h4 class="alert-heading">¡Error!</h4>
+                
                         <ul>';
                 foreach ($error as $errores) {
                     echo '<li>' . $errores . '</li>';
                 }
                 echo '  </ul>
+                  <button type="button" class="btn-close ajuste_close_error" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>';
             }
             ?>
@@ -322,7 +336,7 @@ if (isset($_POST['contra_form'])) {
 <!-- alerta para las sesiones -->
 <div class="alert alert-danger  fade show alert-dismissible" role="alert">
   <h4 class="alert-heading">¡Error!</h4>
-  <p> <strong>El usuario debe ser mayor de 18 años</strong> </p>
+  <p> <strong>El usuario debe ser mayor de 18 años y menor a 90 años </strong> </p>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   <hr>
   <p class="mb-0">Le recomendamos verificar su información </p>
@@ -369,7 +383,7 @@ if (isset($_POST['contra_form'])) {
   <hr>
   <p class="mb-0">
   <form class="form-floating" action="<?php $_SERVER['PHP_SELF'] ?>"  method="post" >
-  <input type="text" class="form-control" id="floatingInputValue" placeholder=""  name="contra_nueva">
+  <input type="password" class="form-control" id="floatingInputValue" placeholder=""  name="contra_nueva">
   <label for="floatingInputValue"  style="font-size: 18px;"> Nueva contraseña</label>
   <div class="d-flex justify-content-center mt-2">
   <input type="submit" name="contra_form" class="btn btn-success" aria-label="Close" value="ACTUALIZAR">
@@ -392,6 +406,17 @@ if (isset($_POST['contra_form'])) {
   <p class="mb-0">Su contraseña se ha actualizado correctamente</p>
 </div>
   <?php }?>
+ <?php  if($error_registro==true ){  ?>
+  <div class="alert alert-danger  fade show alert-dismissible" role="alert">
+  <h4 class="alert-heading">¡Error!</h4>
+  <p> <strong>Se enviaron mal los datos no se adminten espacios en blanco o caracteres espaciales diferentes de los indicados en cada campo</strong> </p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <hr>
+  <p class="mb-0">Le recomendamos verificar su información </p>
+</div>
+<?php  }  ?>
+
+
 </div> <!-- container_4 -->   
 <script  src="bootstrap-5.3.3-dist/js/bootstrap.min.js"> </script>
 </body>
